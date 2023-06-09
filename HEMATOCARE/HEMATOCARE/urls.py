@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('ponto_de_coleta/', views.ponto_de_coleta_list, name='ponto_de_coleta_list'),
+    path('ponto_de_coleta/<str:cnpj>/', views.ponto_de_coleta_detail, name='ponto_de_coleta_detail'),
+    path('ponto_de_coleta/create/', views.ponto_de_coleta_create, name='ponto_de_coleta_create'),
+    path('ponto_de_coleta/update/<str:cnpj>/', views.ponto_de_coleta_update, name='ponto_de_coleta_update'),
+    path('ponto_de_coleta/delete/<str:cnpj>/', views.ponto_de_coleta_delete, name='ponto_de_coleta_delete'),
+    # Defina as URLs para as outras tabelas...
 ]
